@@ -11,7 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922053613) do
+ActiveRecord::Schema.define(version: 20130922054338) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "copters", force: true do |t|
+    t.integer  "hospital_id"
+    t.string   "name"
+    t.string   "type"
+    t.float    "last_latitude"
+    t.float    "last_longitude"
+    t.boolean  "available"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "copters", ["hospital_id"], name: "index_copters_on_hospital_id", using: :btree
+
+  create_table "destinations", force: true do |t|
+    t.integer  "hospital_id"
+    t.string   "name"
+    t.text     "description"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "destinations", ["hospital_id"], name: "index_destinations_on_hospital_id", using: :btree
+
+  create_table "histories", force: true do |t|
+    t.integer  "copter_id"
+    t.integer  "hospital_id"
+    t.integer  "location_id"
+    t.string   "time_left"
+    t.string   "time_delivered"
+    t.string   "time_returned"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "histories", ["copter_id"], name: "index_histories_on_copter_id", using: :btree
+  add_index "histories", ["hospital_id"], name: "index_histories_on_hospital_id", using: :btree
+  add_index "histories", ["location_id"], name: "index_histories_on_location_id", using: :btree
 
   create_table "hospitals", force: true do |t|
     t.string   "name"
@@ -20,5 +63,29 @@ ActiveRecord::Schema.define(version: 20130922053613) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "medicines", force: true do |t|
+    t.integer  "hospital_id"
+    t.string   "name"
+    t.string   "type"
+    t.text     "description"
+    t.boolean  "restricted"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "medicines", ["hospital_id"], name: "index_medicines_on_hospital_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.integer  "hospital_id"
+    t.string   "name"
+    t.string   "phone_number"
+    t.integer  "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["hospital_id"], name: "index_users_on_hospital_id", using: :btree
 
 end
