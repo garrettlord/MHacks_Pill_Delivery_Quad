@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130922110140) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "copters", force: true do |t|
     t.integer  "hospital_id"
     t.string   "name"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20130922110140) do
     t.datetime "updated_at"
   end
 
-  add_index "copters", ["hospital_id"], name: "index_copters_on_hospital_id"
+  add_index "copters", ["hospital_id"], name: "index_copters_on_hospital_id", using: :btree
 
   create_table "destinations", force: true do |t|
     t.integer  "hospital_id"
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 20130922110140) do
     t.datetime "updated_at"
   end
 
-  add_index "destinations", ["hospital_id"], name: "index_destinations_on_hospital_id"
+  add_index "destinations", ["hospital_id"], name: "index_destinations_on_hospital_id", using: :btree
 
   create_table "histories", force: true do |t|
     t.integer  "copter_id"
@@ -49,9 +52,9 @@ ActiveRecord::Schema.define(version: 20130922110140) do
     t.datetime "updated_at"
   end
 
-  add_index "histories", ["copter_id"], name: "index_histories_on_copter_id"
-  add_index "histories", ["destination_id"], name: "index_histories_on_destination_id"
-  add_index "histories", ["hospital_id"], name: "index_histories_on_hospital_id"
+  add_index "histories", ["copter_id"], name: "index_histories_on_copter_id", using: :btree
+  add_index "histories", ["destination_id"], name: "index_histories_on_destination_id", using: :btree
+  add_index "histories", ["hospital_id"], name: "index_histories_on_hospital_id", using: :btree
 
   create_table "hospitals", force: true do |t|
     t.string   "name"
@@ -72,7 +75,7 @@ ActiveRecord::Schema.define(version: 20130922110140) do
     t.datetime "updated_at"
   end
 
-  add_index "medicines", ["hospital_id"], name: "index_medicines_on_hospital_id"
+  add_index "medicines", ["hospital_id"], name: "index_medicines_on_hospital_id", using: :btree
 
   create_table "requested_medicines", force: true do |t|
     t.integer  "request_id"
@@ -82,8 +85,8 @@ ActiveRecord::Schema.define(version: 20130922110140) do
     t.datetime "updated_at"
   end
 
-  add_index "requested_medicines", ["medicine_id"], name: "index_requested_medicines_on_medicine_id"
-  add_index "requested_medicines", ["request_id"], name: "index_requested_medicines_on_request_id"
+  add_index "requested_medicines", ["medicine_id"], name: "index_requested_medicines_on_medicine_id", using: :btree
+  add_index "requested_medicines", ["request_id"], name: "index_requested_medicines_on_request_id", using: :btree
 
   create_table "requests", force: true do |t|
     t.integer  "user_id"
@@ -94,9 +97,9 @@ ActiveRecord::Schema.define(version: 20130922110140) do
     t.datetime "updated_at"
   end
 
-  add_index "requests", ["destination_id"], name: "index_requests_on_destination_id"
-  add_index "requests", ["hospital_id"], name: "index_requests_on_hospital_id"
-  add_index "requests", ["user_id"], name: "index_requests_on_user_id"
+  add_index "requests", ["destination_id"], name: "index_requests_on_destination_id", using: :btree
+  add_index "requests", ["hospital_id"], name: "index_requests_on_hospital_id", using: :btree
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.integer  "hospital_id"
@@ -107,6 +110,6 @@ ActiveRecord::Schema.define(version: 20130922110140) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["hospital_id"], name: "index_users_on_hospital_id"
+  add_index "users", ["hospital_id"], name: "index_users_on_hospital_id", using: :btree
 
 end
