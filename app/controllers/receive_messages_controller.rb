@@ -11,7 +11,7 @@ class ReceiveMessagesController < ApplicationController
   
     puts body
   end
-   
+end 
     # input = body.split(" "); # input is the message body slit by space
     # # Figure out command
     # iter = 0
@@ -169,4 +169,3 @@ class ReceiveMessagesController < ApplicationController
   #   # send text through twilio api
   #   puts message
   # end
-  
