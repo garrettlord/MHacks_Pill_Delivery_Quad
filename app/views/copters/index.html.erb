@@ -1,0 +1,37 @@
+<h1>Listing copters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hospital</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Last latitude</th>
+      <th>Last longitude</th>
+      <th>Available</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @copters.each do |copter| %>
+      <tr>
+        <td><%= copter.hospital_id %></td>
+        <td><%= copter.name %></td>
+        <td><%= copter.category %></td>
+        <td><%= copter.last_latitude %></td>
+        <td><%= copter.last_longitude %></td>
+        <td><%= copter.available %></td>
+        <td><%= link_to 'Show', copter %></td>
+        <td><%= link_to 'Edit', edit_copter_path(copter) %></td>
+        <td><%= link_to 'Destroy', copter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Copter', new_copter_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Copter:</strong>
+  <%= @history.copter_id %>
+</p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @history.hospital_id %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @history.destination_id %>
+</p>
+
+<p>
+  <strong>Time left:</strong>
+  <%= @history.time_left %>
+</p>
+
+<p>
+  <strong>Time delivered:</strong>
+  <%= @history.time_delivered %>
+</p>
+
+<p>
+  <strong>Time returned:</strong>
+  <%= @history.time_returned %>
+</p>
+
+<%= link_to 'Edit', edit_history_path(@history) %> |
+<%= link_to 'Back', histories_path %>

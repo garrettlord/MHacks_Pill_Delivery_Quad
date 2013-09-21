@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @medicine.hospital_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @medicine.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @medicine.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @medicine.description %>
+</p>
+
+<p>
+  <strong>Restricted:</strong>
+  <%= @medicine.restricted %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @medicine.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_medicine_path(@medicine) %> |
+<%= link_to 'Back', medicines_path %>
