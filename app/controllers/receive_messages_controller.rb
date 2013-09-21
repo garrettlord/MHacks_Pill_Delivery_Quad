@@ -101,7 +101,7 @@ class ReceiveMessagesController < ApplicationController
     # Similar to
     when "s"
       medID = input[iter];
-    iter += 1
+      iter += 1
       med = Medicine.find(medID)
       # get list of medicines of the same type
       meds = Medicine.find_by_name(med.type)
@@ -161,6 +161,9 @@ class ReceiveMessagesController < ApplicationController
       pos += 1
       meds[medsIter] = med
       medsIter+=1
+      tempMed = Medicine.find(med.id)
+      tempMed.quantity -= med.count
+      tempMed.save
     end
     return meds;
   end
