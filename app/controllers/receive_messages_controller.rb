@@ -6,7 +6,7 @@ class ReceiveMessagesController < ApplicationController
   TWILIO_NUMBER = "+12484681032"
   ACCOUNT_SID = 'AC96796c001a76c46cedafc99786c61642'
   AUTH_TOKEN = 'f8d659f3cc40cb5662f84c7432d46375'
-  fromNum = 0
+  @fromNum = 0
 
   # POST /process_sms
   def process_sms
@@ -15,8 +15,8 @@ class ReceiveMessagesController < ApplicationController
     body = params[:Body]
     # find the user's name from their phone number
     fromNumRaw = params[:From].split("")
-    fromNum = "#{fromNumRaw[2..4].join}#{fromNumRaw[5..7].join}#{fromNumRaw[8..-1].join}"
-    puts fromNum
+    @fromNum = "#{fromNumRaw[2..4].join}#{fromNumRaw[5..7].join}#{fromNumRaw[8..-1].join}"
+    puts @fromNum
 
     puts body
 
@@ -177,7 +177,7 @@ class ReceiveMessagesController < ApplicationController
     account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
         account.sms.messages.create(
           :from => TWILIO_NUMBER,
-          :to => "+1#{fromNum}",
+          :to => "+1#{@fromNum}",
           :body => message
         )
   end
