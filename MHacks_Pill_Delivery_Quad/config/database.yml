@@ -8,19 +8,19 @@ development:
   encoding: unicode
   database: mhacks
   pool: 5
-  username: glord
+  username: mttuer
   password:
 test:
   adapter: postgresql
   encoding: unicode
   database: mhacks
   pool: 5
-  username: glord
+  username: mttuer
   password:
 production:
   adapter: postgresql
   encoding: unicode
   database: mhacks
   pool: 5
-  username: glord
+  username: mttuer
   password:
