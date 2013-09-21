@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130922054338) do
 
   add_index "copters", ["hospital_id"], name: "index_copters_on_hospital_id", using: :btree
 
+
   create_table "destinations", force: true do |t|
     t.integer  "hospital_id"
     t.string   "name"
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20130922054338) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
 
   add_index "destinations", ["hospital_id"], name: "index_destinations_on_hospital_id", using: :btree
 
@@ -52,9 +54,11 @@ ActiveRecord::Schema.define(version: 20130922054338) do
     t.datetime "updated_at"
   end
 
+
   add_index "histories", ["copter_id"], name: "index_histories_on_copter_id", using: :btree
   add_index "histories", ["hospital_id"], name: "index_histories_on_hospital_id", using: :btree
   add_index "histories", ["location_id"], name: "index_histories_on_location_id", using: :btree
+
 
   create_table "hospitals", force: true do |t|
     t.string   "name"

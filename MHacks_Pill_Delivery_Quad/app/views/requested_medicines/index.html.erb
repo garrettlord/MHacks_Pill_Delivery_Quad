@@ -1,0 +1,31 @@
+<h1>Listing requested_medicines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Request</th>
+      <th>Medicine</th>
+      <th>Quantity</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requested_medicines.each do |requested_medicine| %>
+      <tr>
+        <td><%= requested_medicine.request %></td>
+        <td><%= requested_medicine.medicine %></td>
+        <td><%= requested_medicine.quantity %></td>
+        <td><%= link_to 'Show', requested_medicine %></td>
+        <td><%= link_to 'Edit', edit_requested_medicine_path(requested_medicine) %></td>
+        <td><%= link_to 'Destroy', requested_medicine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Requested medicine', new_requested_medicine_path %>

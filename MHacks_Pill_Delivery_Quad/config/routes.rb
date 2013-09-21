@@ -1,4 +1,8 @@
 MHacksPillDeliveryQuad::Application.routes.draw do
+  resources :requested_medicines
+
+  resources :requests
+
   resources :histories
 
   resources :copters

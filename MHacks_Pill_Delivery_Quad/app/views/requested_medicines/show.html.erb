@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Request:</strong>
+  <%= @requested_medicine.request %>
+</p>
+
+<p>
+  <strong>Medicine:</strong>
+  <%= @requested_medicine.medicine %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @requested_medicine.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_requested_medicine_path(@requested_medicine) %> |
+<%= link_to 'Back', requested_medicines_path %>
