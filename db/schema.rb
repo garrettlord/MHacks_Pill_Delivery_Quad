@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20130922110140) do
 
   create_table "copters", force: true do |t|
@@ -53,10 +52,6 @@ ActiveRecord::Schema.define(version: 20130922110140) do
   add_index "histories", ["copter_id"], name: "index_histories_on_copter_id", using: :btree
   add_index "histories", ["destination_id"], name: "index_histories_on_destination_id", using: :btree
   add_index "histories", ["hospital_id"], name: "index_histories_on_hospital_id", using: :btree
-<<<<<<< HEAD:MHacks_Pill_Delivery_Quad/db/schema.rb
-  add_index "histories", ["location_id"], name: "index_histories_on_location_id", using: :btree
-=======
->>>>>>> 9bad07cc3223c544ed5ba2f1d88b6261c00f1e9d:db/schema.rb
 
   create_table "hospitals", force: true do |t|
     t.string   "name"
