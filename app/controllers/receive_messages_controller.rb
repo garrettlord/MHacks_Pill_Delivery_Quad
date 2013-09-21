@@ -2,6 +2,11 @@ require 'ostruct'
 class ReceiveMessagesController < ApplicationController
    skip_before_filter  :verify_authenticity_token
 
+  # twilio account information
+  TWILIO_NUMBER = "+12484681032"
+  ACCOUNT_SID = 'AC96796c001a76c46cedafc99786c61642'
+  AUTH_TOKEN = 'f8d659f3cc40cb5662f84c7432d46375'
+
   # POST /process_sms
   def process_sms
     # get array of message words
@@ -167,7 +172,11 @@ class ReceiveMessagesController < ApplicationController
   end
 
   def sendMessage(message)
-    # send text through twilio api
-    puts message
+    account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
+        account.sms.messages.create(
+          :from => TWILIO_NUMBER,
+          :to => "+1#{number}",
+          :body => message
+        )
   end
 end
