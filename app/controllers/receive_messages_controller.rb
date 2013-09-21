@@ -148,7 +148,7 @@ class ReceiveMessagesController < ApplicationController
     # send_text(fromNum, output) # sends response text back to sender confirming there request
 
 
-  #  render '/list_texts/list_texts.xml.erb', :content_type => 'text/xml'
+   render '/list_texts/list_texts.xml.erb', :content_type => 'text/xml'
   end
 
   def getMedsList(inputStrs, pos)
