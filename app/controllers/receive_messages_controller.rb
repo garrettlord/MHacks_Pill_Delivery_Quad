@@ -4,6 +4,7 @@ class ReceiveMessagesController < ApplicationController
   # POST /process_sms
   def process_sms
     # get array of message words
+    skip_before_filter  :verify_authenticity_token
     body = params[:Body]
     # find the user's name from their phone number
     # fromNumRaw = params[:From].split("")
