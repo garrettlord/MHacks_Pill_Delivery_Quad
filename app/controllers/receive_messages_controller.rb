@@ -10,6 +10,7 @@ class ReceiveMessagesController < ApplicationController
     # fromNum = "#{fromNumRaw[2..4].join}-#{fromNumRaw[5..7].join}-#{fromNumRaw[8..-1].join}"
   
     puts body
+  end
    
     # input = body.split(" "); # input is the message body slit by space
     # # Figure out command
@@ -168,4 +169,4 @@ class ReceiveMessagesController < ApplicationController
   #   # send text through twilio api
   #   puts message
   # end
-  end
+  
