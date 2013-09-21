@@ -210,17 +210,31 @@
       </div>
       <div class="row8">
 
-    <hr>
-         <h2>Medicines</h2>
-         <hr>
+
+  <div class="container">
+
+<!-------->
+<div id="content">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#history" data-toggle="tab">History</a></li>
+        <li><a href="#meds" data-toggle="tab">Meds</a></li>
+        <li><a href="#dest" data-toggle="tab">Destination</a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="history">
+            <h1>Red</h1>
+            <p>red red red red red red</p>
+        </div>
+        <div class="tab-pane" id="meds">
+                <div style = "padding-right: 600px;">
     <table class="table table-striped"> 
       <thead>
         <tr>
-          <th style="width: 10%"></th>
-          <th style="width: 30%">Name</th>
-          <th style="width: 30%">Restricted</th>
-          <th style="width: 20%">Quantity</th>
-          <th style="width: 10%"></th>
+          <th style="width: 7%"></th>
+          <th style="width: 40%">Name</th>
+          <th style="width: 40%">Restricted</th>
+          <th style="width: 10%">Quantity</th>
+          <th style="width: 3%"></th>
         </tr>
       </thead>
 
@@ -240,6 +254,25 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+        </div>
+        <div class="tab-pane" id="dest">
+            <h1>Yellow</h1>
+            <p>yellow yellow yellow yellow yellow</p>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+    });
+</script>    
+</div> <!-- container -->
+
+
+<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
 
   </div>
   </div>
