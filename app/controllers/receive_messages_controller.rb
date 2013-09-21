@@ -15,7 +15,8 @@ class ReceiveMessagesController < ApplicationController
     # find the user's name from their phone number
     fromNumRaw = params[:From].split("")
     fromNum = "#{fromNumRaw[2..4].join}-#{fromNumRaw[5..7].join}-#{fromNumRaw[8..-1].join}"
-  
+    puts fromNum
+    
     puts body
 
     input = body.split(" "); # input is the message body slit by space
@@ -175,7 +176,7 @@ class ReceiveMessagesController < ApplicationController
     account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
         account.sms.messages.create(
           :from => TWILIO_NUMBER,
-          :to => "+1#{number}",
+          :to => "+1#{fromNum}",
           :body => message
         )
   end
