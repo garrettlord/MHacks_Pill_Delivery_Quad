@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>@TITLE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+.heading {color: #@TEXTCOL;}
+.text a:link{ color: #@LINKCOL;}
+.text a:visited {color: #@LINKVISITED;}
+.text a:hover {color: #@LINKACTIVE;}
+.text a:active { color: #@LINKACTIVE;}
+.text
+{
+  font-size: @TEXTSIZEpx;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #@TEXTCOL;
+}
+</style>
+</head>
+
+<body style="background-color: #@BACKCOLOR; background-image: @BACKIMAGE;">
+<div align="center">  
+  <p class="heading"><strong><font size="5" face="Verdana, Arial, Helvetica, sans-serif">@HEADING</font></strong></p>
+  <p>
+	
+	<OBJECT ID="MediaPlayer" WIDTH="@WIDTH" HEIGHT="@HEIGHT" CLASSID="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6"
+	STANDBY="Loading Windows Media Player components..." TYPE="application/x-oleobject">
+	
+	<PARAM name="URL" VALUE="mms://@WMPHOST:@WMPPORT">
+	<PARAM name="ShowControls" VALUE="true">
+	<PARAM name="ShowAudioControls" VALUE="true">	
+	<param name="ShowStatusBar" value="true">
+	<PARAM name="ShowDisplay" VALUE="false">
+	<PARAM name="AutoStart" VALUE="true">
+	<PARAM name="SendPlayStateChangeEvents" VALUE="true">
+	<PARAM name="WindowlessVideo" VALUE="false">
+	<div style="width: 400px; border: 1px solid #@BORDERCOL; padding-top: 10px; padding-bottom: 10px;" class="text">
+		ActiveX is not installed or is not working properly.<br /><br />
+		Click on or open the following link with<br />Windows Media Player (or similar like <a href="http://www.videolan.org/vlc/" target="_blank">vlc</a>):<br /><br />
+		<strong><a href="mms://@WMPHOST:@WMPPORT">mms://@WMPHOST:@WMPPORT</a></strong>
+		<br />
+		<br />
+		or
+		<br />
+		<br />		
+		If you are using Firefox, please refer to the following <br />
+		Guide:<a href="http://forums.mozillazine.org/viewtopic.php?t=206213" target="_blank">Embedded Windows Media in Firefox</a>
+	</div>
+	</OBJECT>
+	
+	
+	
+  </p>
+  
+  <div align="center"><br /><div align="left" style="width: 400px;" class="text"><p>@PAGETEXT</p></div></div>
+	
+  <p align="center" class="text" style="font-size: 10px;">Powered by <a href="http://www.yawcam.com" target="_blank">www.yawcam.com</a></p>
+  
+  
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+Sent waypoint 0 : MISSION_ITEM {target_system : 1, target_component : 1, seq : 0, frame : 3, command : 16, current : 1, autocontinue : 1, param1 : 0.0, param2 : 0.0, param3 : 0.0, param4 : 0.0, x : 33.445122, y : -122.164673, z : 0.0}
+Sent waypoint 1 : MISSION_ITEM {target_system : 1, target_component : 1, seq : 1, frame : 3, command : 17, current : 0, autocontinue : 1, param1 : 0.0, param2 :
+ 0.0, param3 : 0.0, param4 : 0.0, x : 34.445766, y : -121.166313, z : 88.0}
+Sent waypoint 2 : MISSION_ITEM {target_system : 1, target_component : 1, seq : 2
+, frame : 3, command : 16, current : 0, autocontinue : 1, param1 : 0.0, param2 :
+ 0.0, param3 : 0.0, param4 : 0.0, x : 35.446609, y : -120.165428, z : 88.0}
+Sent waypoint 3 : MISSION_ITEM {target_system : 1, target_component : 1, seq : 3
+, frame : 3, command : 16, current : 0, autocontinue : 1, param1 : 0.0, param2 :
+ 0.0, param3 : 0.0, param4 : 0.0, x : 36.446396, y : -119.163033, z : 88.0}
+Sent waypoint 4 : MISSION_ITEM {target_system : 1, target_component : 1, seq : 4
+, frame : 3, command : 16, current : 0, autocontinue : 1, param1 : 0.0, param2 :
+ 0.0, param3 : 0.0, param4 : 0.0, x : 37.444283, y : -118.162621, z : 88.0}
+Sent waypoint 5 : MISSION_ITEM {target_system : 1, target_component : 1, seq : 5
+, frame : 3, command : 16, current : 0, autocontinue : 1, param1 : 0.0, param2 :
+ 0.0, param3 : 0.0, param4 : 0.0, x : 38.444283, y : -117.162621, z : 88.0}
+Sent all 6 waypoints
+Got MAVLink msg: MISSION_ACK {target_system : 255, target_component : 0, type :
+0}
+APM: flight plan received

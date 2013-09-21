@@ -1,0 +1,70 @@
+
+
+Palantir@ATLASDEMO ~/hackweek/mastar
+$ python mavproxy.py --master=COM14 --baudrate=57600
+Logging to mav.tlog
+MAV> UNKNOWN> Mode UNKNOWN
+GPS lock at 0 meters
+LAND> Mode LAND
+Received 272 parameters
+wp save test.txt
+LAND> Requesting 6 waypoints t=Tue Aug 06 20:08:21 2013 now=Tue Aug 06 20:08:21
+2013
+Saved 6 waypoints to test.txt
+status
+Counters: Slave:0 MasterIn:[10047] FGearOut:0 FGearIn:0 MasterOut:168
+MAV Errors: 0
+None
+590: AHRS {omegaIx : -0.00035430965363, omegaIy : -0.000526391726453, omegaIz :
+-0.00433285953477, accel_weight : 1.0, renorm_val : 0.0, error_rp : 0.0002630644
+59432, error_yaw : 0.00347627699375}
+598: ATTITUDE {time_boot_ms : 675603, roll : -0.0016464907676, pitch : 0.0008518
+72202475, yaw : 1.66638457775, rollspeed : -0.000597283244133, pitchspeed : 0.00
+0982854515314, yawspeed : 0.00624940358102}
+593: GLOBAL_POSITION_INT {time_boot_ms : 675441, lat : 374452413, lon : -1221646
+321, alt : 26070, relative_alt : 1310, vx : -6, vy : 7, vz : -13, hdg : 11097}
+585: GPS_RAW_INT {time_usec : 675441000, fix_type : 3, lat : 374452390, lon : -1
+221646334, alt : 26070, eph : 201, epv : 65535, vel : 7, cog : 11097, satellites
+_visible : 7}
+169: HEARTBEAT {type : 2, autopilot : 3, base_mode : 81, custom_mode : 9, system
+_status : 4, mavlink_version : 3}
+590: HWSTATUS {Vcc : 4940, I2Cerr : 0}
+586: MEMINFO {brkval : 6774, freemem : 1190}
+1: MISSION_COUNT {target_system : 255, target_component : 0, count : 6}
+587: MISSION_CURRENT {seq : 0}
+6: MISSION_ITEM {target_system : 255, target_component : 0, seq : 5, frame : 3,
+command : 16, current : 0, autocontinue : 1, param1 : 0.0, param2 : 0.0, param3
+: 0.0, param4 : 0.0, x : 37.4442825317, y : -122.162620544, z : 88.0}
+586: NAV_CONTROLLER_OUTPUT {nav_roll : 0.0, nav_pitch : 0.0, nav_bearing : 0, ta
+rget_bearing : 0, wp_dist : 0, alt_error : 0.0, aspd_error : 0.0, xtrack_error :
+ 0.0}
+272: PARAM_VALUE {param_id : MOT_TCRV_MAXPCT, param_value : 93.0, param_type : 2
+, param_count : 272, param_index : 271}
+168: RADIO {rssi : 132, remrssi : 130, txbuf : 100, noise : 43, remnoise : 30, r
+xerrors : 206, fixed : 439}
+590: RAW_IMU {time_usec : 675551912, xacc : 8, yacc : 6, zacc : -997, xgyro : 0,
+ ygyro : 0, zgyro : 4, xmag : 21, ymag : -148, zmag : 232}
+589: RC_CHANNELS_RAW {time_boot_ms : 675602, port : 0, chan1_raw : 0, chan2_raw
+: 0, chan3_raw : 0, chan4_raw : 0, chan5_raw : 0, chan6_raw : 0, chan7_raw : 0,
+chan8_raw : 0, rssi : 0}
+587: RC_CHANNELS_SCALED {time_boot_ms : 675581, port : 0, chan1_scaled : 294, ch
+an2_scaled : -11, chan3_scaled : 0, chan4_scaled : -178, chan5_scaled : -29356,
+chan6_scaled : -29356, chan7_scaled : -29337, chan8_scaled : -29414, rssi : 0}
+590: SCALED_PRESSURE {time_boot_ms : 675552, press_abs : 1018.77728271, press_di
+ff : -0.166640624404, temperature : 3261}
+587: SENSOR_OFFSETS {mag_ofs_x : -49, mag_ofs_y : -61, mag_ofs_z : 47, mag_decli
+nation : 0.235427886248, raw_press : 7572479, raw_temp : 9152281, gyro_cal_x : -
+0.0158981196582, gyro_cal_y : -0.0440837442875, gyro_cal_z : 0.0107781086117, ac
+cel_cal_x : -0.0988852009177, accel_cal_y : 0.314459145069, accel_cal_z : 0.3625
+63669682}
+589: SERVO_OUTPUT_RAW {time_usec : 675583320, port : 0, servo1_raw : 992, servo2
+_raw : 992, servo3_raw : 992, servo4_raw : 992, servo5_raw : 0, servo6_raw : 0,
+servo7_raw : 0, servo8_raw : 0}
+586: SYS_STATUS {onboard_control_sensors_present : 4294966319, onboard_control_s
+ensors_enabled : 4294945839, onboard_control_sensors_health : 4294966319, load :
+ 0, voltage_battery : 11836, current_battery : 14, battery_remaining : 99, drop_
+rate_comm : 0, errors_comm : 0, errors_count1 : 0, errors_count2 : 0, errors_cou
+nt3 : 0, errors_count4 : 0}
+598: VFR_HUD {airspeed : 0.070000000298, groundspeed : 0.070000000298, heading :
+ 95, throttle : 0, alt : 1.30999994278, climb : -0.019999999553}
+LAND>

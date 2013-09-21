@@ -1,0 +1,4 @@
+*.log*
+*.tlog*
+Pegasus/logs/*
+!.gitkeep

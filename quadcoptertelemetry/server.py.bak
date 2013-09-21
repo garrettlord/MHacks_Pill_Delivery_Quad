@@ -1,0 +1,62 @@
+import sys, string, cgi, time
+from BaseHTTPServer   import BaseHTTPRequestHandler, HTTPServer
+from SimpleHTTPServer import SimpleHTTPRequestHandler
+import mavproxy
+from subprocess import Popen, PIPE
+from pprint import pprint
+
+
+#server settings
+DEFAULT_PORT = 8080
+ 
+
+class QuadCopterCommRequestHandler(SimpleHTTPRequestHandler):
+    def __init__(self, request, client_address, server):
+        print 'initializing request handler'
+        SimpleHTTPRequestHandler.__init__(self, request, client_address, server)
+        
+    def do_GET(self):
+        print "-> incoming GET"
+        self.send_response(200)
+        _out, _err = self.server.copterLink.communicate('get_info')
+        print _out
+
+
+    def do_POST(self):
+        self.send_response(200)
+        print '-> incoming POST'
+        content_len = int(self.headers.getheader('content-length'))
+        post_body = self.rfile.read(content_len)
+        print post_body
+
+        # if post_body["target"] == "waypoints"
+        #     push_waypoints
+
+        _out, _err = self.server.copterLink.communicate('get_info')
+        print _out
+
+class QuadCopterCommServer(HTTPServer):
+    def __init__(self, server_address, RequestHandlerClass):
+        print '[initializing server]'
+        self.copterLink = Popen(['python', 'mavproxy.py'], stdin=PIPE, stdout=PIPE)
+        print "[copter link enabled]"
+        HTTPServer.__init__(self, server_address, RequestHandlerClass)
+ 
+def main():
+    try:
+        port = DEFAULT_PORT if not sys.argv[1:] else int(sys.argv[1])
+        comm_server = QuadCopterCommServer(('', port), QuadCopterCommRequestHandler)
+        # comm_server.copterLink = Popen(['python', 'mavproxy.py'])
+        print "[server started]"
+        # new Thread(main_loop)
+        comm_server.serve_forever()
+    except KeyboardInterrupt:
+        comm_server.copterLink.kill()
+        comm_server.socket.close()
+        print '[server stopped]'
+ 
+if __name__ == '__main__':
+    # child = Popen(['python', 'mavproxy.py'], stdin=PIPE, stdout=PIPE)
+    # print(child.communicate('get_info')[0])
+    main()
+    
