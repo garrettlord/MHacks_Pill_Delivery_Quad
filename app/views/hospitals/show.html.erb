@@ -1,189 +1,221 @@
+   
+<html>
+<body>
+ <div class="masthead">
+  <ul class="nav nav-pills pull-right">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <h3 class="muted">Project name</h3>
+</div>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @hospital.name %>
-</p>
+<div class="row-fluid">
+  <div style="padding-left: 30px; padding-right: 30px;">
+  
+  <div class="span4">
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @hospital.latitude %>
-</p>
+    <div class="row">
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @hospital.longitude %>
-</p>
+      <h3>place holder for add user</h3>
 
-<%= link_to 'Edit', edit_hospital_path(@hospital) %> |
-<%= link_to 'Back', hospitals_path %>
+    </div>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @hospital.name %>
+    </p>
+
+    <p>
+      <strong>Latitude:</strong>
+      <%= @hospital.latitude %>
+    </p>
+
+    <p>
+      <strong>Longitude:</strong>
+      <%= @hospital.longitude %>
+    </p>
+
+    <%= link_to 'Edit', edit_hospital_path(@hospital) %> |
+    <%= link_to 'Back', hospitals_path %>
+
+    <h2>Admins</h2>
+    <hr>
+    <table class="table table-striped"> 
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone number</th>
+          <th>Priveledge</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @admins.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.phone_number %></td>
+          <td><%= user.priveledge %></td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Users</h2>
+
+    <hr>
+    <table class="table table-striped"> 
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone number</th>
+          <th>Priveledge</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.phone_number %></td>
+          <td><%= user.priveledge %></td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
 
-<h2>Admins</h2>
+    <hr>
+    <h2>Restricted Users</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone number</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <hr>
+    <table class="table table-striped"> 
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone number</th>
+          <th>Priveledge</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @admins.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.phone_number %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<h2>Users</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone number</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.phone_number %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @restricted_users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.phone_number %></td>
+          <td><%= user.priveledge %></td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
 
-<h2>Restricted Users</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone number</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @restricted_users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.phone_number %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<h2>Medicines</h2>
+    <hr>
+    <h2>History</h2>
 
-<table id = "medicines">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Restricted</th>
-      <th>Quantity</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <hr>
+    <table class="table table-striped"> 
+      <thead>
+        <tr>
+          <th>Copter</th>
+          <th>Hospital</th>
+          <th>Destination</th>
+          <th>Time left</th>
+          <th>Time returned</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @medicines.each do |medicine| %>
-      <tr>
-        <td><%= medicine.name %></td>
-        <td><%= medicine.restricted %></td>
-        <td><%= medicine.quantity %></td>
-        <td><%= link_to 'Edit', edit_medicine_path(medicine) %></td>
-        <td><%= link_to 'Destroy', medicine, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  <tfooter>
-    <tr>
-      <td><%= link_to "new medicine", new_medicine_path, id: "new_medicine_link", remote: true %></td>
-    </tr>
-  </tfooter>    
-</table>
+      <tbody>
+        <% @histories.each do |history| %>
+        <tr>
+          <td><%= history.copter_id %></td>
+          <td><%= history.hospital_id %></td>
+          <td><%= history.destination_id %></td>
+          <td><%= history.time_left %></td>
+          <td><%= history.time_returned %></td>
+          <td><%= link_to 'Show', history %></td>
+          <td><%= link_to 'Edit', edit_history_path(history) %></td>
+          <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<h2>History</h2>
+  </div>
+  <div class="span8">
+    <div class="fluid-span">
+      <div class="row4">
+        <h1>I'm a map</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Copter</th>
-      <th>Hospital</th>
-      <th>Destination</th>
-      <th>Time left</th>
-      <th>Time returned</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+      </div>
+      <div class="row8">
 
-  <tbody>
-    <% @histories.each do |history| %>
-      <tr>
-        <td><%= history.copter_id %></td>
-        <td><%= history.hospital_id %></td>
-        <td><%= history.destination_id %></td>
-        <td><%= history.time_left %></td>
-        <td><%= history.time_returned %></td>
-        <td><%= link_to 'Edit', edit_history_path(history) %></td>
-        <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <hr>
+         <h2>Medicines</h2>
+         <hr>
+    <table class="table table-striped", id="medicines"> 
+      <thead>
+        <tr>
+          <th style="width: 10%"></th>
+          <th style="width: 30%">Name</th>
+          <th style="width: 30%">Restricted</th>
+          <th style="width: 20%">Quantity</th>
+          <th style="width: 10%"></th>
+        </tr>
+      </thead>
 
-<h2>Destinations</h2>
+      <tbody>
+        <% @medicines.each do |medicine| %>
+        <tr>
+          <td><%= link_to raw('<i class="icon-edit"></i>'), edit_medicine_path(medicine), :class => 'btn btn-default' %></td>
+          <td><%= medicine.name %></td>
+          <td><%= medicine.restricted %></td>
+          <td><%= medicine.quantity %></td>
+          <td><span class="glyphicon glyphicon-star"></span> </td>
+          <td>        
+               <%= link_to raw('<i class="icon-remove"></i>'), medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+            
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+      <tfooter>
+        <tr>
+          <td><%= link_to "new medicine", new_medicine_path, id: "new_medicine_link", remote: true %></td>
+        </tr>
+      </tfooter>   
+    </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @destinations.each do |destination| %>
-      <tr>
-        <td><%= destination.name %></td>
-        <td><%= destination.description %></td>
-        <td><%= destination.latitude %></td>
-        <td><%= destination.longitude %></td>
-        <td><%= link_to 'Edit', edit_destination_path(destination) %></td>
-        <td><%= link_to 'Destroy', destination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  </div>
+  </div>
+  </div>
+</div>
+</body>
+</html>
