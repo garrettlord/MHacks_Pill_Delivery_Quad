@@ -1,5 +1,3 @@
-require File.join(Rails.root, "lib/parse_helper.rb")
-
 class ReceiveMessagesController < ApplicationController
 
   # POST /process_sms
