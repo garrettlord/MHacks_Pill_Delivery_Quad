@@ -30,6 +30,7 @@ class MedicinesController < ApplicationController
       if @medicine.save
         format.html { redirect_to @medicine, notice: 'Medicine was successfully created.' }
         format.json { render action: 'show', status: :created, location: @medicine }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @medicine.errors, status: :unprocessable_entity }

@@ -10,6 +10,7 @@
   <h3 class="muted">Project name</h3>
 </div>
 <p id="notice"><%= notice %></p>
+
 <div class="row-fluid">
   <div style="padding-left: 30px; padding-right: 30px;">
   
@@ -167,40 +168,6 @@
       </tbody>
     </table>
 
-
-    <hr>
-    <h2>Listing copters</h2>
-
-    <hr>
-    <table class="table table-striped"> 
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Last latitude</th>
-          <th>Last longitude</th>
-          <th>Available</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @copters.each do |copter| %>
-        <tr>
-          <td><%= copter.name %></td>
-          <td><%= copter.category %></td>
-          <td><%= copter.last_latitude %></td>
-          <td><%= copter.last_longitude %></td>
-          <td><%= copter.available %></td>
-          <td><%= link_to 'Show', copter %></td>
-          <td><%= link_to 'Edit', edit_copter_path(copter) %></td>
-          <td><%= link_to 'Destroy', copter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
   </div>
   <div class="span8">
     <div class="fluid-span">
@@ -210,17 +177,30 @@
       </div>
       <div class="row8">
 
-    <hr>
-         <h2>Medicines</h2>
-         <hr>
-    <table class="table table-striped"> 
+  <div class="container">
+
+<!-------->
+<div id="content">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#history" data-toggle="tab">History</a></li>
+        <li><a href="#meds" data-toggle="tab">Meds</a></li>
+        <li><a href="#dest" data-toggle="tab">Destination</a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="history">
+            <h1>Red</h1>
+            <p>red red red red red red</p>
+        </div>
+        <div class="tab-pane" id="meds">
+                <div style = "padding-right: 600px;">
+    <table class="table table-striped", id="medicines"> 
       <thead>
         <tr>
-          <th style="width: 10%"></th>
-          <th style="width: 30%">Name</th>
-          <th style="width: 30%">Restricted</th>
-          <th style="width: 20%">Quantity</th>
-          <th style="width: 10%"></th>
+          <th style="width: 7%"></th>
+          <th style="width: 40%">Name</th>
+          <th style="width: 40%">Restricted</th>
+          <th style="width: 10%">Quantity</th>
+          <th style="width: 3%"></th>
         </tr>
       </thead>
 
@@ -239,7 +219,31 @@
         </tr>
         <% end %>
       </tbody>
+      <tfooter>
+        <tr>
+          <td><%= link_to "new medicine", new_medicine_path, id: "new_medicine_link", remote: true %></td>
+        </tr>
+      </tfooter>   
     </table>
+  </div>
+        </div>
+        <div class="tab-pane" id="dest">
+            <h1>Yellow</h1>
+            <p>yellow yellow yellow yellow yellow</p>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+    });
+</script>    
+</div> <!-- container -->
+
+
+<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
 
   </div>
   </div>
