@@ -167,6 +167,7 @@ class ReceiveMessagesController < ApplicationController
       meds[medsIter] = med
       medsIter+=1
       tempMed = Medicine.find(med.id)
+      UpdatePillLoad(med.id)
       tempMed.quantity -= med.count
       tempMed.save
     end

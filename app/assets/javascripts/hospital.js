@@ -2,9 +2,9 @@ var line;
 
 function initialize() {
   var mapOptions = {
-    center: new google.maps.LatLng(20.291, 153.027),
-    zoom: 6,
-    mapTypeId: google.maps.MapTypeId.TERRAIN
+    center: new google.maps.LatLng(35.926,35.921),
+    zoom: 14,
+    mapTypeId: google.maps.MapTypeId.HYBRID
   };
   var marker = null;
 
@@ -22,14 +22,16 @@ function initialize() {
   });
   
   var lineCoordinates = [
-      new google.maps.LatLng(37.772323, -122.214897),
-      new google.maps.LatLng(21.291982, -157.821856),
-      new google.maps.LatLng(-18.142599, 178.431),
-      new google.maps.LatLng(-27.46758, 153.027892)
+      new google.maps.LatLng(35.931064, 35.920808),
+      new google.maps.LatLng(35.927753, 35.919263),
+      new google.maps.LatLng(35.926007, 35.921409),
+      new google.maps.LatLng(35.924017, 35.922868),
+      new google.maps.LatLng(35.922679, 35.92452)
   ];
+  
 
   var lineSymbol = {
-    path: google.maps.SymbolPath.CIRCLE,
+    path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
     scale: 8,
     strokeColor: '#393'
   };
@@ -49,10 +51,10 @@ function initialize() {
 function animateCircle() {
   var count = 0;
   window.setInterval(function() {
-    count = (count + 1) % 200;
+    count = (count + 1) % 400;
 
     var icons = line.get('icons');
-    icons[0].offset = (count / 2) + '%';
+    icons[0].offset = (count / 4.5) + '%';
     line.set('icons', icons);
   }, 20);
 }
