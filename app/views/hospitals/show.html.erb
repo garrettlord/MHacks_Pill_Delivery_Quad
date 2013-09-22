@@ -17,3 +17,184 @@
 
 <%= link_to 'Edit', edit_hospital_path(@hospital) %> |
 <%= link_to 'Back', hospitals_path %>
+
+<h2>Admins</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th>Priveledge</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admins.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.phone_number %></td>
+        <td><%= user.priveledge %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h2>Users</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th>Priveledge</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.phone_number %></td>
+        <td><%= user.priveledge %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h2>Restricted Users</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th>Priveledge</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restricted_users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.phone_number %></td>
+        <td><%= user.priveledge %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h2>Medicines</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Restricted</th>
+      <th>Quantity</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medicines.each do |medicine| %>
+      <tr>
+        <td><%= medicine.name %></td>
+        <td><%= medicine.restricted %></td>
+        <td><%= medicine.quantity %></td>
+        <td><%= link_to 'Show', medicine %></td>
+        <td><%= link_to 'Edit', edit_medicine_path(medicine) %></td>
+        <td><%= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h2>History</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Copter</th>
+      <th>Hospital</th>
+      <th>Destination</th>
+      <th>Time left</th>
+      <th>Time returned</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @histories.each do |history| %>
+      <tr>
+        <td><%= history.copter_id %></td>
+        <td><%= history.hospital_id %></td>
+        <td><%= history.destination_id %></td>
+        <td><%= history.time_left %></td>
+        <td><%= history.time_returned %></td>
+        <td><%= link_to 'Show', history %></td>
+        <td><%= link_to 'Edit', edit_history_path(history) %></td>
+        <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h2>Listing copters</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Last latitude</th>
+      <th>Last longitude</th>
+      <th>Available</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @copters.each do |copter| %>
+      <tr>
+        <td><%= copter.name %></td>
+        <td><%= copter.category %></td>
+        <td><%= copter.last_latitude %></td>
+        <td><%= copter.last_longitude %></td>
+        <td><%= copter.available %></td>
+        <td><%= link_to 'Show', copter %></td>
+        <td><%= link_to 'Edit', edit_copter_path(copter) %></td>
+        <td><%= link_to 'Destroy', copter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

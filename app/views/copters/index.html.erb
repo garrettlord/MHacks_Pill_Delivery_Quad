@@ -5,7 +5,7 @@
     <tr>
       <th>Hospital</th>
       <th>Name</th>
-      <th>Type</th>
+      <th>Category</th>
       <th>Last latitude</th>
       <th>Last longitude</th>
       <th>Available</th>
@@ -18,9 +18,9 @@
   <tbody>
     <% @copters.each do |copter| %>
       <tr>
-        <td><%= copter.hospital %></td>
+        <td><%= copter.hospital_id %></td>
         <td><%= copter.name %></td>
-        <td><%= copter.type %></td>
+        <td><%= copter.category %></td>
         <td><%= copter.last_latitude %></td>
         <td><%= copter.last_longitude %></td>
         <td><%= copter.available %></td>

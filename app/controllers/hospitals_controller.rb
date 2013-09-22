@@ -10,6 +10,14 @@ class HospitalsController < ApplicationController
   # GET /hospitals/1
   # GET /hospitals/1.json
   def show
+    set_hospital
+    @admins = User.where("hospital_id = ? and priveledge = ?", @hospital.id, 3)
+    @users = User.where("hospital_id = ? and priveledge = ?", @hospital.id, 2)
+    @restricted_users = User.where("hospital_id = ? and priveledge = ?", @hospital.id, 1)
+
+    @medicines = Medicine.where("hospital_id = ?", @hospital.id)
+    @histories = History.where("hospital_id = ?", @hospital.id)
+    @copters = Copter.where("hospital_id = ?", @hospital.id)
   end
 
   # GET /hospitals/new

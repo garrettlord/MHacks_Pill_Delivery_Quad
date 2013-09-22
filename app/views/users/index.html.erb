@@ -6,7 +6,7 @@
       <th>Hospital</th>
       <th>Name</th>
       <th>Phone number</th>
-      <th>Type</th>
+      <th>Priveledge</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,10 +16,10 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.hospital %></td>
+        <td><%= user.hospital_id %></td>
         <td><%= user.name %></td>
         <td><%= user.phone_number %></td>
-        <td><%= user.type %></td>
+        <td><%= user.priveledge %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

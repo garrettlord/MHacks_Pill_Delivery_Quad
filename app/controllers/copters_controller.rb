@@ -69,6 +69,6 @@ class CoptersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def copter_params
-      params.require(:copter).permit(:hospital_id, :name, :type, :last_latitude, :last_longitude, :available)
+      params.require(:copter).permit(:hospital_id, :name, :category, :last_latitude, :last_longitude, :available)
     end
 end

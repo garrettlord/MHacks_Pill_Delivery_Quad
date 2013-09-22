@@ -5,7 +5,7 @@
     <tr>
       <th>Copter</th>
       <th>Hospital</th>
-      <th>Location</th>
+      <th>Destination</th>
       <th>Time left</th>
       <th>Time delivered</th>
       <th>Time returned</th>
@@ -18,9 +18,9 @@
   <tbody>
     <% @histories.each do |history| %>
       <tr>
-        <td><%= history.copter %></td>
-        <td><%= history.hospital %></td>
-        <td><%= history.location %></td>
+        <td><%= history.copter_id %></td>
+        <td><%= history.hospital_id %></td>
+        <td><%= history.destination_id %></td>
         <td><%= history.time_left %></td>
         <td><%= history.time_delivered %></td>
         <td><%= history.time_returned %></td>
