@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hospital_id: 
+  name: MyString
+  type: 
+  last_latitude: 1.5
+  last_longitude: 1.5
+  available: false
+
+two:
+  hospital_id: 
+  name: MyString
+  type: 
+  last_latitude: 1.5
+  last_longitude: 1.5
+  available: false

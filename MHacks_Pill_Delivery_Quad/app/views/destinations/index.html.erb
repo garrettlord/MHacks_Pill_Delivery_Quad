@@ -1,0 +1,35 @@
+<h1>Listing destinations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hospital</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @destinations.each do |destination| %>
+      <tr>
+        <td><%= destination.hospital %></td>
+        <td><%= destination.name %></td>
+        <td><%= destination.description %></td>
+        <td><%= destination.latitude %></td>
+        <td><%= destination.longitude %></td>
+        <td><%= link_to 'Show', destination %></td>
+        <td><%= link_to 'Edit', edit_destination_path(destination) %></td>
+        <td><%= link_to 'Destroy', destination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Destination', new_destination_path %>

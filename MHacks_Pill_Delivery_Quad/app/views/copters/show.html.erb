@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @copter.hospital %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @copter.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @copter.type %>
+</p>
+
+<p>
+  <strong>Last latitude:</strong>
+  <%= @copter.last_latitude %>
+</p>
+
+<p>
+  <strong>Last longitude:</strong>
+  <%= @copter.last_longitude %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @copter.available %>
+</p>
+
+<%= link_to 'Edit', edit_copter_path(@copter) %> |
+<%= link_to 'Back', copters_path %>

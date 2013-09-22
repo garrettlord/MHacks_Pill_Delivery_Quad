@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hospital_id: 
+  name: MyString
+  type: 
+  description: MyText
+  restricted: false
+  quantity: 1
+
+two:
+  hospital_id: 
+  name: MyString
+  type: 
+  description: MyText
+  restricted: false
+  quantity: 1

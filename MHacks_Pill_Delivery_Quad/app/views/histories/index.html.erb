@@ -1,0 +1,37 @@
+<h1>Listing histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Copter</th>
+      <th>Hospital</th>
+      <th>Location</th>
+      <th>Time left</th>
+      <th>Time delivered</th>
+      <th>Time returned</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @histories.each do |history| %>
+      <tr>
+        <td><%= history.copter %></td>
+        <td><%= history.hospital %></td>
+        <td><%= history.location %></td>
+        <td><%= history.time_left %></td>
+        <td><%= history.time_delivered %></td>
+        <td><%= history.time_returned %></td>
+        <td><%= link_to 'Show', history %></td>
+        <td><%= link_to 'Edit', edit_history_path(history) %></td>
+        <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New History', new_history_path %>
