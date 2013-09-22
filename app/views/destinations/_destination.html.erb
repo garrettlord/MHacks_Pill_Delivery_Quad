@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to "Edit", edit_destination_path(@destination), :class => 'btn btn-default' %></td>
+  <td><%= @destination.hospital_id %></td>
+  <td><%= @destination.name %></td>
+  <td><%= @destination.description %></td>
+  <td><%= @destination.latitude %></td>
+  <td><%= @destination.longitude %></td>
+  <td><span class="glyphicon glyphicon-star"></span> </td>
+  <td>        
+       <%= link_to "Delete", destination, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+  </td>
+ </tr>

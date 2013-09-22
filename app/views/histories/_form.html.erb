@@ -1,41 +1,11 @@
-<%= form_for(@history) do |f| %>
-  <% if @history.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@history.errors.count, "error") %> prohibited this history from being saved:</h2>
-
-      <ul>
-      <% @history.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<div id="new_history_form">
+  <%= form_for @history, remote: true, :display => :inline do |f| %>
+    <%= f.submit "Confirm", class: 'btn btn-success' %>
+    <%= f.text_field :copter_id, placeholder: "Copter ID" %>
+    <%= f.text_field :hospital_id, placeholder: "Hospital ID" %>
+    <%= f.text_field :destination_id, placeholder: "Destination ID" %>
+    <%= f.text_field :time_left, placeholder: "Time Left" %>
+    <%= f.text_field :time_delivered, placeholder: "Time Delivered" %>
+    <%= f.text_field :time_returned, placeholder: "Time Returned" %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :copter_id %><br>
-    <%= f.text_field :copter_id %>
-  </div>
-  <div class="field">
-    <%= f.label :hospital_id %><br>
-    <%= f.text_field :hospital_id %>
-  </div>
-  <div class="field">
-    <%= f.label :destination_id %><br>
-    <%= f.text_field :destination_id %>
-  </div>
-  <div class="field">
-    <%= f.label :time_left %><br>
-    <%= f.text_field :time_left %>
-  </div>
-  <div class="field">
-    <%= f.label :time_delivered %><br>
-    <%= f.text_field :time_delivered %>
-  </div>
-  <div class="field">
-    <%= f.label :time_returned %><br>
-    <%= f.text_field :time_returned %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
