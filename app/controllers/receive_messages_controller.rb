@@ -181,4 +181,26 @@ class ReceiveMessagesController < ApplicationController
           :body => message
         )
   end
+
+  def groupMessage(numbers, message)
+      account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
+      
+      numbers.each do |number|
+        logger.info "sending message: #{@text_message.message} to: #{number}"
+
+        begin
+          account.sms.messages.create(
+              :from => TWILIO_NUMBER,
+              :to => "#{number}",
+              :body => message
+          )
+          successes << "#{number}"
+        rescue Exception => e
+          logger.error "error sending message: #{e.to_s}"
+          errors << e.to_s
+        end
+      end
+  end
+
+
 end
