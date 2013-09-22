@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  hospital_id: 
+  destination_id: 
+  time_requested: MyString
+
+two:
+  user_id: 
+  hospital_id: 
+  destination_id: 
+  time_requested: MyString

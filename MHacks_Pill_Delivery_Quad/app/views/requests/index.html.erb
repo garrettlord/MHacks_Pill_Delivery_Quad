@@ -1,0 +1,33 @@
+<h1>Listing requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Hospital</th>
+      <th>Destination</th>
+      <th>Time requested</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.user %></td>
+        <td><%= request.hospital %></td>
+        <td><%= request.destination %></td>
+        <td><%= request.time_requested %></td>
+        <td><%= link_to 'Show', request %></td>
+        <td><%= link_to 'Edit', edit_request_path(request) %></td>
+        <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Request', new_request_path %>
