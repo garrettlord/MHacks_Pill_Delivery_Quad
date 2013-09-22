@@ -93,12 +93,12 @@
 
 						<% @admins.each do |user| %>
 							<tr>
-								<td><%= link_to raw('<i class="icon-edit"></i>'), edit_medicine_path(medicine), :class => 'btn btn-default' %></td>
+								<td><%= link_to raw('<i class="icon-edit"></i>'), edit_medicine_path(@medicine), :class => 'btn btn-default' %></td>
 								<td><%= user.name %></td>
 								<td><%= user.phone_number %></td>
 								<td><%= user.priveledge %></td>
 								<td>
-									<%= link_to raw('<i class="icon-remove"></i>'), medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+									<%= link_to raw('<i class="icon-remove"></i>'), @medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
 								</td>
 							</tr>
 						<% end %>
@@ -154,4 +154,3 @@
 		</div>
 	</div>
 </div>
-
