@@ -16,6 +16,7 @@ MHacksPillDeliveryQuad::Application.routes.draw do
   resources :hospitals
 
   match '/process_sms' => 'receive_messages#process_sms', via: [:post]
+  post '/send_sms' => 'receive_messages#butts', as: 'send_sms'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,11 +3,48 @@
 <head>
   <title>MHacksPillDeliveryQuad</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "http://code.google.com//apis/maps/documentation/javascript/examples/default.css" %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+    <div class="navbar-header">
+      <a href="../" class="navbar-brand">Some Store</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+				<li><%= link_to "Price List" %></li>
+				<li><%= link_to "Contact Us" %></li>
+				<li><%= link_to "Cart" %></li>
+				<li><a data-toggle="modal" href="#myModal">Send Message</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
 
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">Send message</h4>
+			</div>
+			<div class="modal-body">
+				<%= form_tag(send_sms_path, remote: true) do %>
+
+				<% end %>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-primary">Send</button>
+			</div>
+
+		</div>
+	</div>
+</div>
 <%= yield %>
 
 </body>
