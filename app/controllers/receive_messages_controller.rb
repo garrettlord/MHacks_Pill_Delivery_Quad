@@ -195,11 +195,13 @@ class ReceiveMessagesController < ApplicationController
 
   def runArduino(meds)
       fileName = `ls /dev/ttyACM*`
-      system("stty -F " + fileName + " cs8 9600 ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts")
+      puts fileName
+      system("stty -F " + fileName[0..-2] + " cs8 115200 ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts")
       cmdStr = "echo \"m";
-      meds.each { |a| cmdStr += " " + a.getID}
-      cmdStr += " 0"\" > " + fileName
+      meds.each { |a| cmdStr += " " + a.id}
+      cmdStr += " 0\" > " + fileName
       system(cmdStr)
+      puts cmdStr
   end
 
 end
