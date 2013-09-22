@@ -150,8 +150,8 @@ class ReceiveMessagesController < ApplicationController
       med.count = inputStrs[pos].downcase;
       pos += 1
       tempMed = Medicine.find(med.id)
-      if(tempMed.quantity - med.count >= 0) then
-        tempMed.quantity -= med.count
+      if(tempMed.quantity - Integer(med.count) >= 0) then
+        tempMed.quantity -= Integer(med.count)
         tempMed.save
         meds[medsIter] = med
         medsIter+=1
@@ -193,10 +193,10 @@ class ReceiveMessagesController < ApplicationController
 
   def runArduino(meds)
       fileName = `ls /dev/ttyACM*`
-      system("stty -F " + fileName + " cs8 115200 ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts")
+      system("stty -F " + fileName + " cs8 9600 ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts")
       cmdStr = "echo \"m";
       meds.each { |a| cmdStr += " " + a.getID}
-      cmdStr += "0"\" > " + fileName
+      cmdStr += " 0"\" > " + fileName
       system(cmdStr)
   end
 
