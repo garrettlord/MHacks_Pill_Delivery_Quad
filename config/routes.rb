@@ -15,6 +15,8 @@ MHacksPillDeliveryQuad::Application.routes.draw do
 
   resources :hospitals
 
+  root :to => 'hospitals#index'
+
   match '/process_sms' => 'receive_messages#process_sms', via: [:post]
   post '/send_sms' => 'receive_messages#butts', as: 'send_sms'
 
