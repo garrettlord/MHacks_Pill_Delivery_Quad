@@ -150,8 +150,10 @@ class ReceiveMessagesController < ApplicationController
       med.count = inputStrs[pos].downcase;
       pos += 1
       tempMed = Medicine.find(med.id)
+      puts tempMed.quantity
+      puts med.count
       if(tempMed.quantity - Integer(med.count) >= 0) then
-        tempMed.quantity -= Integer(med.count)
+        tempMed.quantity = tempMed.quantity - Integer(med.count)
         tempMed.save
         meds[medsIter] = med
         medsIter+=1
