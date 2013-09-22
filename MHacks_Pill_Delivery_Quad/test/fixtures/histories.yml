@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  copter_id: 
+  hospital_id: 
+  destination_id: 
+  time_left: MyText
+  time_delivered: MyText
+  time_returned: MyText
+
+two:
+  copter_id: 
+  hospital_id: 
+  destination_id: 
+  time_left: MyText
+  time_delivered: MyText
+  time_returned: MyText

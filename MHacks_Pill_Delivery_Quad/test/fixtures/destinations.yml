@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hospital_id: 
+  name: MyText
+  description: MyText
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  hospital_id: 
+  name: MyText
+  description: MyText
+  latitude: 1.5
+  longitude: 1.5
