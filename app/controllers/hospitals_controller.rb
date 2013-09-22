@@ -17,7 +17,7 @@ class HospitalsController < ApplicationController
 
     @medicines = Medicine.where("hospital_id = ?", @hospital.id)
     @histories = History.where("hospital_id = ?", @hospital.id)
-    @copters = Copter.where("hospital_id = ?", @hospital.id)
+    @destinations = Destination.where("hospital_id = ?", @hospital.id)
   end
 
   # GET /hospitals/new

@@ -1,0 +1,7 @@
+<tr>
+  <td><%= @medicine.name %></td>
+  <td><%= @medicine.restricted %></td>
+  <td><%= @medicine.quantity %></td>
+  <td><%= link_to 'Edit', edit_medicine_path(@medicine) %></td>
+  <td><%= link_to 'Destroy', @medicine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
