@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'pg'
 gem 'sqlite3'
 
+gem 'leaflet-rails'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -26,10 +28,7 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-
 gem 'rails_12factor'
-
-gem 'twitter-bootstrap-rails'
 
 gem "therubyracer"
 gem "less-rails"

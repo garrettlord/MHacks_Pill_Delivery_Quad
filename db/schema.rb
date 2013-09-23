@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130922110140) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "copters", force: true do |t|
     t.integer  "hospital_id"
     t.string   "name"
@@ -52,8 +55,6 @@ ActiveRecord::Schema.define(version: 20130922110140) do
   add_index "histories", ["copter_id"], name: "index_histories_on_copter_id", using: :btree
   add_index "histories", ["destination_id"], name: "index_histories_on_destination_id", using: :btree
   add_index "histories", ["hospital_id"], name: "index_histories_on_hospital_id", using: :btree
-  add_index "histories", ["location_id"], name: "index_histories_on_location_id", using: :btree
-
 
   create_table "hospitals", force: true do |t|
     t.string   "name"
