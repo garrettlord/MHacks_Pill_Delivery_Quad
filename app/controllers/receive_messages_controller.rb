@@ -30,10 +30,6 @@ class ReceiveMessagesController < ApplicationController
     case command
     # request to GPS
       when "r2g"
-        user = input[iter].downcase
-        iter += 1
-        password = input[iter].downcase
-        iter += 1
         gpsLat = input[iter].downcase 
         iter += 1
         gpsLon = input[iter].downcase
@@ -41,20 +37,15 @@ class ReceiveMessagesController < ApplicationController
         meds = getMedsList(input, iter)
 
         ## TEST
-        puts user
-        puts password
         puts "lat: " + gpsLat
         puts gpsLon
 
       meds.each { |a| puts a }
+      runArduino(meds)
       ##
 
       # request to address
       when "r2a"
-        user = input[iter].downcase
-        iter += 1
-        password = input[iter].downcase
-        iter += 1
         addr = input[iter].downcase
         iter += 1
         street = input[iter].downcase
@@ -67,8 +58,6 @@ class ReceiveMessagesController < ApplicationController
         iter += 1
         meds = getMedsList(input, iter)
      ## TEST
-        puts user
-        puts password
         puts addr
         puts street
         puts city
@@ -76,22 +65,18 @@ class ReceiveMessagesController < ApplicationController
         puts zip
       meds.each { |a| puts a }
       ##
+      runArduino(meds)
 
       # request to location
       when "r2l"
-        user = input[iter].downcase
-        iter += 1
-        password = input[iter].downcase
-        iter += 1
         location = input[iter].downcase
         iter += 1
         meds = getMedsList(input, iter)
 
         ## TEST
-        puts user
-        puts password
         puts location
       meds.each { |a| puts a }
+      runArduino(meds)
       ##
        # check stock
       when "cs"
@@ -164,11 +149,17 @@ class ReceiveMessagesController < ApplicationController
       pos += 1
       med.count = inputStrs[pos].downcase;
       pos += 1
-      meds[medsIter] = med
-      medsIter+=1
       tempMed = Medicine.find(med.id)
-      tempMed.quantity -= med.count
-      tempMed.save
+      puts tempMed.quantity
+      puts med.count
+      if(tempMed.quantity - Integer(med.count) >= 0) then
+        tempMed.quantity = tempMed.quantity - Integer(med.count)
+        tempMed.save
+        meds[medsIter] = med
+        medsIter+=1
+      else
+        sendMessage("Out of stock of " + tempMed.name + ". Use S <medicine name> to find similar medicines.")
+      end
     end
     return meds;
   end
@@ -202,5 +193,13 @@ class ReceiveMessagesController < ApplicationController
       end
   end
 
+  def runArduino(meds)
+      fileName = `ls /dev/ttyACM*`
+      system("stty -F " + fileName + " cs8 9600 ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts")
+      cmdStr = "echo \"m";
+      meds.each { |a| cmdStr += " " + a.getID}
+      cmdStr += " 0"\" > " + fileName
+      system(cmdStr)
+  end
 
 end
