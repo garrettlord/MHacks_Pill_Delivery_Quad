@@ -13,7 +13,7 @@
 	<div class="container">
     <div class="navbar-header">
       <a href="../" class="navbar-brand">Autonomous Relief Platform</a>
-    </div>
+r    </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
 				<li><%= link_to "About Us" %></li>
@@ -31,13 +31,12 @@
 				<h4 class="modal-title" id="myModalLabel">Send message</h4>
 			</div>
 			<div class="modal-body">
-				<%= form_tag(send_sms_path, remote: true) do %>
-
+				<%= form_tag('/send_group_sms') do %>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-primary">Send</button>
+					</div>
 				<% end %>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				<button type="button" class="btn btn-primary">Send</button>
 			</div>
 
 		</div>
