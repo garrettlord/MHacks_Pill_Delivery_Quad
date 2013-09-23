@@ -37,10 +37,8 @@
 										</td>
 									</tr>
 								<% end %>
-								<tr>
-									<td><%= link_to "new medicine", new_medicine_path, id: "new_medicine_link", remote: true %></td>
-								</tr>
-							</table>
+              </table>
+							<td><%= link_to "New Medicine", new_medicine_path, id: "new_medicine_link", remote: true, class: 'btn btn-success' %></td>
 						</div>
 						<div class="tab-pane" id="dest">
 							<h3>Penis</h3>
@@ -98,7 +96,7 @@
 								<td><%= user.phone_number %></td>
 								<td><%= user.priveledge %></td>
 								<td>
-									<%= link_to raw('<i class="icon-remove"></i>'), @medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+									<%= link_to raw('<i class="icon-remove"></i>'), @rmedicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
 								</td>
 							</tr>
 						<% end %>

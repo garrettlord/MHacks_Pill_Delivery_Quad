@@ -1,13 +1,12 @@
 <div id="new_medicine_form">
   <%= form_for @medicine, remote: true, :display => :inline  do |f| %>
-    <tr>
-      <%= f.hidden_field :hospital_id, :value => @hospital %><
-      <td><%= f.text_field :name %></td>
-      <td><%= f.hidden_field :category, :value => "" %>
-      <td><%= f.hidden_field :description, :value => "" %>
-      <td><%= f.check_box :restricted %></td>
-      <td><%= f.number_field :quantity %></td>
-      <td><%= f.submit %></td>
-    </tr>
+      <%= f.submit "Confirm", class: 'btn btn-success' %>
+      <%= f.text_field :hospital_id, :placeholder => "Hospital ID" %>
+      <%= f.text_field :name, placeholder: "Name" %>
+      <%= f.text_field :category, :value => "Category", hidden: true %>
+      <%= f.text_area :description, :value => "Description", hidden: true %>
+      <%= f.label "Restricted?" %>
+      <%= f.check_box :restricted %>
+      <%= f.number_field :quantity, placeholder: "Quantity" %>
   <% end %>
 </div>
