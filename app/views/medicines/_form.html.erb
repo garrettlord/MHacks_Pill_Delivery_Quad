@@ -1,43 +1,13 @@
- <div id="new_medicine_form"> 
-  <%= form_for @medicine, remote: true  do |f| %>
-    <% if @medicine.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@medicine.errors.count, "error") %> prohibited this medicine from being saved:</h2>
-
-        <ul>
-        <% @medicine.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :hospital_id %><br>
-      <%= f.text_field :hospital_id %>
-    </div>
-    <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :category %><br>
-      <%= f.text_field :category %>
-    </div>
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </div>
-    <div class="field">
-      <%= f.label :restricted %><br>
-      <%= f.check_box :restricted %>
-    </div>
-    <div class="field">
-      <%= f.label :quantity %><br>
-      <%= f.number_field :quantity %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+<div id="new_medicine_form">
+  <%= form_for @medicine, remote: true, :display => :inline  do |f| %>
+    <tr>
+      <%= f.hidden_field :hospital_id, :value => @hospital %><
+      <td><%= f.text_field :name %></td>
+      <td><%= f.hidden_field :category, :value => "" %>
+      <td><%= f.hidden_field :description, :value => "" %>
+      <td><%= f.check_box :restricted %></td>
+      <td><%= f.number_field :quantity %></td>
+      <td><%= f.submit %></td>
+    </tr>
   <% end %>
 </div>

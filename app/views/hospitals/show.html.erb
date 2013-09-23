@@ -179,7 +179,6 @@
 
   <div class="container">
 
-<!-------->
 <div id="content">
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#history" data-toggle="tab">History</a></li>
@@ -213,7 +212,8 @@
           <td><%= medicine.quantity %></td>
           <td><span class="glyphicon glyphicon-star"></span> </td>
           <td>        
-               <%= link_to raw('<i class="icon-remove"></i>'), medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+              <!-- icon-ok; btn-success -->
+              <%= link_to raw('<i class="icon-remove"></i>'), medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
             
           </td>
         </tr>
@@ -221,7 +221,7 @@
       </tbody>
       <tfooter>
         <tr>
-          <td><%= link_to "new medicine", new_medicine_path, id: "new_medicine_link", remote: true %></td>
+          <td><%= link_to raw('<i class="icon-white icon-plus"></i>'), new_medicine_path, id: "new_medicine_link", remote: true, :class => 'btn btn-primary', :hospital => @hospital.id %></td>
         </tr>
       </tfooter>   
     </table>
