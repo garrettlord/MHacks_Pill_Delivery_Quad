@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to "Edit", edit_user_path(@user), :class => 'btn btn-default' %></td>
+  <td><%= @user.name %></td>
+  <td><%= @user.phone_number %></td>
+  <td>        
+       <%= link_to "Delete", user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+  </td>
+</tr>

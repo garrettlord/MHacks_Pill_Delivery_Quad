@@ -1,19 +1,19 @@
 <div class="container">
-	<div class="row" style="margin-top:60px">
-		<p id="notice"><%= notice %></p>
+    <div class="row" style="margin-top:60px">
+        <p id="notice"><%= notice %></p>
 
-		<div class="col-xs-8">
-			<div class="row">
-				<div id="content">
-					<div id="map-canvas" style="height:400px; width:100%;"></div>
-					<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-						<li class="active"><a href="#history" data-toggle="tab">History</a></li>
-						<li><a href="#meds" data-toggle="tab">Meds</a></li>
-						<li><a href="#dest" data-toggle="tab">Destination</a></li>
-					</ul>
-					<div id="my-tab-content" class="tab-content">
-						<div class="tab-pane active" id="history">
-							<table class="table table-striped", id="histories">
+        <div class="col-xs-8">
+            <div class="row">
+                <div id="content">
+                    <div id="map-canvas" style="height:400px; width:100%;"></div>
+                    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                        <li class="active"><a href="#history" data-toggle="tab">History</a></li>
+                        <li><a href="#meds" data-toggle="tab">Meds</a></li>
+                        <li><a href="#dest" data-toggle="tab">Destination</a></li>
+                    </ul>
+                    <div id="my-tab-content" class="tab-content">
+                        <div class="tab-pane active" id="history">
+                            <table class="table table-striped", id="histories">
                 <tr>
                   <th style="width: 5%"></th>
                   <th style="width: 15%">ID</th>
@@ -27,48 +27,46 @@
 
                 <% @histories.each do |history| %>
                   <tr>
-                    <td><%= link_to raw('<i class="icon-edit"></i>'), edit_history_path(history), :class => 'btn btn-default' %></td>
-                    <td><%= hospital.copter_id %></td>
-                    <td><%= hospital.hospital_id %></td>
-                    <td><%= hospital.destination_id %></td>
-                    <td><%= hospital.time_left %></td>
-                    <td><%= hospital.time_delivered %></td>
-                    <td><%= hospital.time_returned %></td>
+                    <td><%= link_to "Edit", edit_history_path(history), :class => 'btn btn-default' %></td>
+                    <td><%= history.copter_id%></td>
+                    <td><%= history.hospital_id %></td>
+                    <td><%= history.destination_id %></td>
+                    <td><%= history.time_left %></td>
+                    <td><%= history.time_delivered %></td>
+                    <td><%= history.time_returned %></td>
                     <td>
-                      <%= link_to raw('<i class="icon-remove"></i>'), history, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+                      <%= link_to "Delete", history, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
                     </td>
                   </tr>
                 <% end %>
-                <tr>
-                  <td><%= link_to "new history", new_history_path, id: "new_history_link", remote: true %></td>
-                </tr>
               </table>
+              <%= link_to "New History", new_history_path, id: "new_history_link", remote: true, class: 'btn btn-success' %>
             </div>
-						<div class="tab-pane" id="meds">
-							<table class="table table-striped", id="medicines">
-								<tr>
-									<th style="width: 7%"></th>
-									<th style="width: 40%">Name</th>
-									<th style="width: 36%">Restricted</th>
-									<th style="width: 10%">Quantity</th>
-									<th style="width: 7%"></th>
-								</tr>
+                <div class="tab-pane" id="meds">
+                    <table class="table table-striped", id="medicines">
+                        <tr>
+                            <th style="width: 7%"></th>
+                            <th style="width: 40%">Name</th>
+                            <th style="width: 36%">Restricted</th>
+                            <th style="width: 10%">Quantity</th>
+                            <th style="width: 7%"></th>
+                        </tr>
 
-								<% @medicines.each do |medicine| %>
-									<tr>
-										<td><%= link_to raw('<i class="icon-edit"></i>'), edit_medicine_path(medicine), :class => 'btn btn-default' %></td>
-										<td><%= medicine.name %></td>
-										<td><%= medicine.restricted %></td>
-										<td><%= medicine.quantity %></td>
-										<td>
-											<%= link_to raw('<i class="icon-remove"></i>'), medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
-										</td>
-									</tr>
-								<% end %>
-              </table>
-							<td><%= link_to "New Medicine", new_medicine_path, id: "new_medicine_link", remote: true, class: 'btn btn-success' %></td>
-						</div>
-						<div class="tab-pane" id="dest">
+                        <% @medicines.each do |medicine| %>
+                            <tr>
+                                <td><%= link_to "Edit", edit_medicine_path(medicine), :class => 'btn btn-default' %></td>
+                                <td><%= medicine.name %></td>
+                                <td><%= medicine.restricted %></td>
+                                <td><%= medicine.quantity %></td>
+                                <td>
+                                    <%= link_to "Delete", medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </table>
+                    <%= link_to "New Medicine", new_medicine_path, id: "new_medicine_link", remote: true, class: 'btn btn-success' %>
+                </div>
+            <div class="tab-pane" id="dest">
               <table class="table table-striped", id="destinations">
                 <tr>
                   <th style="width: 5%"></th>
@@ -82,128 +80,107 @@
 
                 <% @destinations.each do |destination| %>
                   <tr>
-                    <td><%= link_to raw('<i class="icon-edit"></i>'), edit_destination_path(destination), :class => 'btn btn-default' %></td>
+                    <td><%= link_to "Edit", edit_destination_path(destination), :class => 'btn btn-default' %></td>
                     <td><%= destination.hospital_id %></td>
                     <td><%= destination.name %></td>
                     <td><%= destination.description %></td>
                     <td><%= destination.latitude %></td>
                     <td><%= destination.longitude %></td>
                     <td>
-                      <%= link_to raw('<i class="icon-remove"></i>'), destination, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+                      <%= link_to "Delete", destination, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
                     </td>
                   </tr>
                 <% end %>
-                <tr>
-                  <td><%= link_to "new destination", new_destination_path, id: "new_destination_link", remote: true %></td>
-                </tr>
               </table>
+              <%= link_to "New Destination", new_destination_path, id: "new_destination_link", remote: true, class: 'btn btn-success' %>
             </div>
-					</div>
-				</div>
+                    </div>
+                </div>
 
-				<script type="text/javascript">
-					$(function() {
-						$('#tabs').tab();
-					});
-				</script>
-			</div>
-		</div>
-		<div class="col-xs-4">
-			<div class="row" style="padding:0 10px; padding-bottom: 10px">
-				<h3>Add User</h3>
-				<%= form_tag(user_path, method: 'post', class: 'form-inline') do %>
-					<div class="form-group">
-						<%= label_tag('user[name]', 'Name:', class: 'sr-only') %>
-						<%= text_field('user', 'name', class: 'form-control', placeholder: 'Name') %>
-					</div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#tabs').tab();
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row" style="padding:0 10px; padding-bottom: 10px">
+              <%= link_to "New User", new_user_path, id: "new_user_link", remote: true, class: 'btn btn-success' %>
+              <div id="new_user_form_space"></div>
+            </div>
 
-					<div class="form-group">
-						<%= label_tag('user[phone_number]', 'Phone Number:', class: 'sr-only') %>
-						<%= text_field('user', 'phone_number', class: 'form-control', placeholder: 'Phone Number') %>
-					</div>
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#admins" data-toggle="tab">Admins</a></li>
+                <li><a href="#users" data-toggle="tab">Users</a></li>
+                <li><a href="#restricted-users" data-toggle="tab">Restricted Users</a></li>
+            </ul>
 
-          <div class="form-group">
-            <%= label_tag('user[priveledge]', 'Priveledge:', class: 'sr-only') %>
-            <%= text_field('user', 'priveledge', class: 'form-control', placeholder: 'Priveledge') %>
-          </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="admins">
+                    <table class="table table-striped" id="admins-table">
+                        <tr>
+                            <th style="width: 10%"></th>
+                            <th style = "width: 40%">Name</th>
+                            <th style = "width: 40%">Phone number</th>
+                            <th style = "width: 10%"></th>
+                        </tr>
 
-					<%= submit_tag('Add', class: 'btn btn-default') %>
-				<% end %>
-
-			</div>
-
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#admins" data-toggle="tab">Admins</a></li>
-				<li><a href="#users" data-toggle="tab">Users</a></li>
-				<li><a href="#restricted-users" data-toggle="tab">Restricted Users</a></li>
-			</ul>
-
-			<div class="tab-content">
-				<div class="tab-pane active" id="admins">
-					<table class="table table-striped">
-						<tr>
-							<th style="width: 10%"></th>
-							<th style = "width: 40%">Name</th>
-							<th style = "width: 40%">Phone number</th>
-							<th style = "width: 10%"></th>
-						</tr>
-
-						<% @admins.each do |user| %>
-							<tr>
-								<td><%= link_to raw('<i class="icon-edit"></i>'), edit_user_path(user), :class => 'btn btn-default' %></td>
-								<td><%= user.name %></td>
-								<td><%= user.phone_number %></td>
-								<td>
-									<%= link_to raw('<i class="icon-remove"></i>'), user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
-								</td>
-							</tr>
-						<% end %>
-					</table>
-				</div>
-				<div class="tab-pane" id="users">
-					<table class="table table-striped">
-						<tr>
+                        <% @admins.each do |user| %>
+                            <tr>
+                                <td><%= link_to "Edit", edit_user_path(user), :class => 'btn btn-default' %></td>
+                                <td><%= user.name %></td>
+                                <td><%= user.phone_number %></td>
+                                <td>
+                                    <%= link_to "Delete", user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </table>
+                </div>
+                <div class="tab-pane" id="users">
+                    <table class="table table-striped" id="users-table">
+                        <tr>
               <th style="width: 10%"></th>
               <th style = "width: 40%">Name</th>
               <th style = "width: 40%">Phone number</th>
               <th style = "width: 10%"></th>
-						</tr>
+                        </tr>
 
-						<% @users.each do |user| %>
-							<tr>
-                <td><%= link_to raw('<i class="icon-edit"></i>'), edit_user_path(user), :class => 'btn btn-default' %></td>
-								<td><%= user.name %></td>
-								<td><%= user.phone_number %></td>
+                        <% @users.each do |user| %>
+                            <tr>
+                <td><%= link_to "Edit", edit_user_path(user), :class => 'btn btn-default' %></td>
+                                <td><%= user.name %></td>
+                                <td><%= user.phone_number %></td>
                 <td>
-                  <%= link_to raw('<i class="icon-remove"></i>'), user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+                  <%= link_to "Delete", user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
                 </td>
-							</tr>
-						<% end %>
-					</table>
-				</div>
-				<div class="tab-pane" id="restricted-users">
-					<table class="table table-striped">
-						<tr>
-							<th style="width: 10"></th>
-							<th style="width: 40">Name</th>
-							<th style="width: 40">Phone number</th>
-							<th style="width: 10"></th>
-						</tr>
+                            </tr>
+                        <% end %>
+                    </table>
+                </div>
+                <div class="tab-pane" id="restricted-users">
+                    <table class="table table-striped" id="restricted-users-table">
+                        <tr>
+                            <th style="width: 10"></th>
+                            <th style="width: 40">Name</th>
+                            <th style="width: 40">Phone number</th>
+                            <th style="width: 10"></th>
+                        </tr>
 
-						<% @restricted_users.each do |user| %>
-							<tr>
-								<td><%= link_to raw('<i class="icon-edit"></i>'), edit_user_path(user), :class => 'btn btn-default' %></td>
-								<td><%= user.name %></td>
-								<td><%= user.phone_number %></td>
-								<td><%= user.priveledge %></td>
-								<td>
-									<%= link_to raw('<i class="icon-remove"></i>'), user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
-								</td>
-							</tr>
-						<% end %>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
+                        <% @restricted_users.each do |user| %>
+                            <tr>
+                                <td><%= link_to "Edit", edit_user_path(user), :class => 'btn btn-default' %></td>
+                                <td><%= user.name %></td>
+                                <td><%= user.phone_number %></td>
+                                <td>
+                                    <%= link_to "Delete", user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

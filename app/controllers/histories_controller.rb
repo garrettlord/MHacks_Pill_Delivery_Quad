@@ -30,6 +30,7 @@ class HistoriesController < ApplicationController
       if @history.save
         format.html { redirect_to @history, notice: 'History was successfully created.' }
         format.json { render action: 'show', status: :created, location: @history }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @history.errors, status: :unprocessable_entity }

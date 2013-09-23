@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to "Edit", edit_history_path(@history), :class => 'btn btn-default' %></td>
+  <td><%= @history.copter_id %></td>
+  <td><%= @history.hospital_id %></td>
+  <td><%= @history.destination_id %></td>
+  <td><%= @history.time_left %></td>
+  <td><%= @history.time_delivered %></td>
+  <td><%= @history.time_returned %></td>
+  <td>
+    <%= link_to "Delete", history, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+  </td>
+</tr>

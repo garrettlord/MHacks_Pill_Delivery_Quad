@@ -1,37 +1,10 @@
-<%= form_for(@destination) do |f| %>
-  <% if @destination.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@destination.errors.count, "error") %> prohibited this destination from being saved:</h2>
-
-      <ul>
-      <% @destination.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<div id="new_destination_form">
+  <%= form_for @destination, remote: true, :display => :inline do |f| %>
+    <%= f.submit "Confirm", class: 'btn btn-success' %>
+    <%= f.text_field :hospital_id, placeholder: "Hospital ID", class: "control" %>
+    <%= f.text_field :name, placeholder: "Name" %>
+    <%= f.text_area :description, placeholder: "Description" %>
+    <%= f.text_field :latitude, placeholder: "Latitude" %>
+    <%= f.text_field :longitude, placeholder: "Longitude" %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :hospital_id %><br>
-    <%= f.text_field :hospital_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

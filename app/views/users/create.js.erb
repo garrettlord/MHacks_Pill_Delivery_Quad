@@ -1,0 +1,10 @@
+$('#new_user_form').remove();
+$('#new_user_link').show();
+// calls a partial called _medicine with a variable called @medicine
+<%- if @user.priveledge == 3 %>
+	$('#admins-table').append('<%= j render(@user) %>');
+<%- elsif @user.priveledge == 2 %>
+	$('#users-table').append('<%= j render(@user) %>');
+<%- else %>
+	$('#restricted-users-table').append('<%= j render(@user) %>');
+<%- end %>

@@ -30,6 +30,7 @@ class DestinationsController < ApplicationController
       if @destination.save
         format.html { redirect_to @destination, notice: 'Destination was successfully created.' }
         format.json { render action: 'show', status: :created, location: @destination }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @destination.errors, status: :unprocessable_entity }

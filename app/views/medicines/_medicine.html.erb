@@ -1,11 +1,11 @@
 <tr>
-  <td><%= link_to raw('<i class="icon-edit"></i>'), edit_medicine_path(@medicine), :class => 'btn btn-default' %></td>
+  <td><%= link_to "Edit", edit_medicine_path(@medicine), :class => 'btn btn-default' %></td>
   <td><%= @medicine.name %></td>
   <td><%= @medicine.restricted %></td>
   <td><%= @medicine.quantity %></td>
   <td><span class="glyphicon glyphicon-star"></span> </td>
   <td>        
-       <%= link_to raw('<i class="icon-remove"></i>'), medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+       <%= link_to "Delete", medicine, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
     
   </td>
 </tr>
